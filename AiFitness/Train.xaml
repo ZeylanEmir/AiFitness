@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AiFitness.Train">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Train Page!(В разработке)"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="25"
+                   FontAttributes="Bold"/>
+            <Label x:Name="timerLabel"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Button Text="Завершить тренировку" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

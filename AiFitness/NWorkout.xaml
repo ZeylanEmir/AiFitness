@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AiFitness.NWorkout">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Тренировка от нейросети" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" BackgroundColor="#0384fc"/>
+            <Label Text="Введите Ваши предпочтения к тренировке и нажмите на кнопку" TextColor="Black" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,10,0,0" FontSize="15"/>
+            
+            <Entry x:Name="time" Placeholder="Сколько будете тренироваться?"/>
+            <Entry x:Name="muscle" Placeholder="Что будете тренировать?"/>
+            <Entry x:Name="location" Placeholder="Где будете тренироваться?"/>
+            <Entry x:Name="equipment" Placeholder="Какой у Вас инвентарь?"/>
+            <Button Text="Создать тренировку" Clicked="Button_Result"/>
+
+            <ScrollView x:Name="scroll">
+                <Label x:Name="result" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
