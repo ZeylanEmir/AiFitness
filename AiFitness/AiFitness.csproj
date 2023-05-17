@@ -51,6 +51,9 @@
     <EmbeddedResource Update="Train.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\WorkoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Workout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -58,6 +61,5 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 </Project>

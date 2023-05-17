@@ -1,0 +1,14 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AiFitness.ViewModels"
+             x:Class="AiFitness.Views.WorkoutPage">
+    <ContentPage.BindingContext>
+        <viewModels:WorkoutViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="{Binding CurrentExercise.Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Image Source="{Binding CurrentExercise.Gif}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="{Binding CurrentExercise.Reps}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Button Text="Next" Command="{Binding NextExerciseCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>

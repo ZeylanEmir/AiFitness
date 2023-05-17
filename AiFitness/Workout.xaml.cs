@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AiFitness.Views;
 
 namespace AiFitness
 {
@@ -28,7 +29,7 @@ namespace AiFitness
 
         async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Train());
+            await Navigation.PushAsync(new WorkoutPage());
         }
 
         

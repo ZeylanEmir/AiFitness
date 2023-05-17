@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AiFitness.Views;
+using System;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,8 @@ namespace AiFitness
             InitializeComponent();
 
             MainPage = new NavigationPage (new MainPage());
+            
+            
         }
 
         protected override void OnStart()
