@@ -61,5 +61,6 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="AdditionalExercises\" />
   </ItemGroup>
 </Project>

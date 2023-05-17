@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System;
 using AiFitness.Views;
+using AiFitness;
 
 namespace AiFitness.ViewModels
 {
@@ -18,7 +19,7 @@ namespace AiFitness.ViewModels
             {
                 new Exercise { Title = "Exercise 1", Gif = ImageSource.FromFile("exercise1.gif"), Reps = "10 reps" },
                 new Exercise { Title = "Exercise 2", Gif = ImageSource.FromFile("exercise2.gif"), Reps = "15 reps" },
-                new Exercise { Title = "Exercise 3", Gif = ImageSource.FromFile("exercise3.gif"), Reps = "12 reps" }
+                new Exercise { Title = "Exercise 3", Gif = ImageSource.FromFile("exercise3.gif"), Reps = "20 reps" }
                 // Добавь сюда другие упражнения
             };
 
@@ -26,6 +27,8 @@ namespace AiFitness.ViewModels
 
             NextExerciseCommand = new Command(NextExercise);
         }
+
+        
 
         public Exercise CurrentExercise => exercises[currentExerciseIndex];
 
@@ -42,9 +45,8 @@ namespace AiFitness.ViewModels
             currentExerciseIndex++;
             if (currentExerciseIndex >= exercises.Count)
             {
-                // Переход на главную страницу (MainPage)
-                // Например, можно использовать Navigation.PushAsync(new MainPage());
                 Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+
                 return;
             }
 

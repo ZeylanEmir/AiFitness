@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:AiFitness.ViewModels;assembly=AiFitness"
              x:Class="AiFitness.Workout">
+    <ContentPage.BindingContext>
+        <viewmodels:WorkoutViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-
         <StackLayout>
             <Label Text="Тренировки" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" BackgroundColor="#0384fc"/>
-            <Button Text="Training1" Clicked="Button_Clicked"></Button>
+            <Button Text="Тренировка Базовая" Clicked="Button_Clicked" />
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

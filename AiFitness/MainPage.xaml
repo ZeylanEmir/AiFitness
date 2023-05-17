@@ -8,7 +8,9 @@
             SelectedTabColor="White"
             UnselectedTabColor="#a2c4fa"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            android:TabbedPage.ToolbarPlacement="Bottom">
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            >
+    
     
     <local:Workout Title="Тренировки" IconImageSource="fitness_center_FILL0_wght400_GRAD0_opsz48.png"/>
     <local:NWorkout Title="Нейросеть" IconImageSource="neurology_FILL0_wght400_GRAD0_opsz48.png"/>
