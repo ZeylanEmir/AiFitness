@@ -10,6 +10,10 @@
         <StackLayout>
             <Label Text="Тренировки" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" BackgroundColor="#0384fc"/>
             <Button Text="Тренировка Базовая" Clicked="Button_Clicked" />
+            <Button Text="Тренировка АБС" Clicked="Button_Clicked_1"/>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

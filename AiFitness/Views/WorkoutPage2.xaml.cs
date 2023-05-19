@@ -10,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AiFitness.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WorkoutPage : ContentPage
+    public partial class WorkoutPage2 : ContentPage
     {
-        public WorkoutPage()
+        public WorkoutPage2()
         {
             InitializeComponent();
-
         }
     }
 }

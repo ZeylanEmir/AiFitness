@@ -7,18 +7,18 @@ using AiFitness.Views;
 
 namespace AiFitness.ViewModels
 {
-    public class WorkoutViewModel : INotifyPropertyChanged
+    public class WorkoutViewModel2 : INotifyPropertyChanged
     {
         private ObservableCollection<Exercise> exercises;
         private int currentExerciseIndex;
 
-        public WorkoutViewModel()
+        public WorkoutViewModel2()
         {
             exercises = new ObservableCollection<Exercise>
             {
-                new Exercise { Title = "Exercise 1", Gif = ImageSource.FromFile("exercise1.gif"), Reps = "10 reps" },
-                new Exercise { Title = "Exercise 2", Gif = ImageSource.FromFile("exercise2.gif"), Reps = "15 reps" },
-                new Exercise { Title = "Exercise 3", Gif = ImageSource.FromFile("exercise3.gif"), Reps = "12 reps" }
+                new Exercise { Title = "A 1", Gif = ImageSource.FromFile("exercise1.gif"), Reps = "10 reps" },
+                new Exercise { Title = "B 2", Gif = ImageSource.FromFile("exercise2.gif"), Reps = "15 reps" },
+                new Exercise { Title = "C 3", Gif = ImageSource.FromFile("exercise3.gif"), Reps = "12 reps" }
                 // Добавь сюда другие упражнения
             };
 

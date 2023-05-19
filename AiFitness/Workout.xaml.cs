@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AiFitness.Views;
+using AiFitness.ViewModels;
 
 namespace AiFitness
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-   
+
 
 
 
@@ -27,11 +28,14 @@ namespace AiFitness
             InitializeComponent();
         }
 
-        void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new WorkoutPage());
         }
 
-        
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new WorkoutPage2());
+        }
     }
 }
