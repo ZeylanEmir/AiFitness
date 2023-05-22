@@ -8,9 +8,9 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Тренировки" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" BackgroundColor="#0384fc"/>
+            <Label Text="Тренировки &#127942;" HorizontalOptions="Start" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30"/>
             <Button Text="Тренировка Базовая" Clicked="Button_Clicked" />
-            <Button Text="Тренировка АБС" Clicked="Button_Clicked_1"/>
+            <Button Text="Тренировка Силовая" Clicked="Button_Clicked_1"/>
 
 
 

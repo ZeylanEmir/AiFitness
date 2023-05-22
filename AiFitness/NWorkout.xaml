@@ -4,7 +4,7 @@
              x:Class="AiFitness.NWorkout">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Тренировка от нейросети" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" BackgroundColor="#0384fc"/>
+            <Label Text="Тренировка от нейросети &#127941;" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" BackgroundColor="#0384fc"/>
             <Label Text="Введите Ваши предпочтения к тренировке и нажмите на кнопку" TextColor="Black" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,10,0,0" FontSize="15"/>
             
             <Entry x:Name="time" Placeholder="Сколько будете тренироваться?"/>

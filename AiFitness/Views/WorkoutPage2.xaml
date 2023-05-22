@@ -6,9 +6,9 @@
         <viewModels:WorkoutViewModel2/>
     </ContentPage.BindingContext>
     <StackLayout>
-        <Label Text="{Binding CurrentExercise.Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="{Binding CurrentExercise.Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="18"/>
         <Image Source="{Binding CurrentExercise.Gif}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Label Text="{Binding CurrentExercise.Reps}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Button Text="Next" Command="{Binding NextExerciseCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="{Binding CurrentExercise.Reps}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+        <Button Text="Next" Command="{Binding NextExerciseCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
     </StackLayout>
 </ContentPage>

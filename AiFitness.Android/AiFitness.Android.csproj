@@ -110,5 +110,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\neurology_FILL0_wght400_GRAD0_opsz48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\azm_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\person_FILL0_wght700_GRAD200_opsz48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

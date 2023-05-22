@@ -16,10 +16,11 @@ namespace AiFitness.ViewModels
         {
             exercises = new ObservableCollection<Exercise>
             {
-                new Exercise { Title = "A 1", Gif = ImageSource.FromFile("exercise1.gif"), Reps = "10 reps" },
-                new Exercise { Title = "B 2", Gif = ImageSource.FromFile("exercise2.gif"), Reps = "15 reps" },
-                new Exercise { Title = "C 3", Gif = ImageSource.FromFile("exercise3.gif"), Reps = "12 reps" }
-                // Добавь сюда другие упражнения
+                new Exercise { Title = "Штанга стоя близким хватом сгибания", Gif = ImageSource.FromFile("Tz8X.gif"), Reps = "10 Повторений" },
+                new Exercise { Title = "Приседания со штангой", Gif = ImageSource.FromFile("Tz8X.gif"), Reps = "15 Повторений" },
+                new Exercise { Title = "Подтягивание подбородка обратное движение сжатие ", Gif = ImageSource.FromFile("Tz8X.gif"), Reps = "12 Повторений" },
+                new Exercise { Title = "Концентрация скручивания гантель", Gif = ImageSource.FromFile("Tz8X.gif"), Reps = "12 Повторений" },
+                new Exercise { Title = "Перетягивание скручивание упражнение с гантелями", Gif = ImageSource.FromFile("Tz8X.gif"), Reps = "12 Повторений" }
             };
 
             currentExerciseIndex = 0;

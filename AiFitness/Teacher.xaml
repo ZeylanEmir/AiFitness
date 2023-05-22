@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AiFitness.Teacher">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Список персональных тренеров:" TextColor="Black" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" />
+            <Label Text="Даниил Тусаев" TextColor="Black" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,15,0,0" FontSize="15"/>
+            <Image Source="person_FILL0_wght700_GRAD200_opsz48.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Text="Связаться" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

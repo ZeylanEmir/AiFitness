@@ -25,11 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Fonts\MaterialIcons-Regular.ttf" />
-    <None Remove="Fonts\MaterialIconsTwoTone-Regular.otf" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FubarCoder.RestSharp.Portable.HttpClient" Version="4.0.8" />
     <PackageReference Include="RestSharp" Version="106.15.0" />
     <PackageReference Include="Xam.Plugin.Iconize.MaterialDesignIcons" Version="3.5.0.129" />
@@ -48,6 +43,9 @@
     <EmbeddedResource Update="Stats.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Teacher.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Train.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -60,9 +58,5 @@
     <EmbeddedResource Update="Workout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Fonts\" />
   </ItemGroup>
 </Project>
