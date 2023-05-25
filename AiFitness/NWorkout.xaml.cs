@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace AiFitness
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class CoolDown
     {
         public string Exercise { get; set; }
@@ -39,8 +39,6 @@ namespace AiFitness
 
         [JsonProperty("Cool Down")]
         public List<CoolDown> CoolDown { get; set; }
-
-
     }
 
     public class WarmUp
@@ -51,76 +49,150 @@ namespace AiFitness
 
     public partial class NWorkout : ContentPage
     {
+        // Словари для каждой кнопки, установка значения для дальнейшей передачи в API
+        private Dictionary<string, string> timeOptions = new Dictionary<string, string>
+        {
+            { "10", "10 минут" },
+            { "20", "20 минут" },
+            { "30", "30 минут" },
+            { "40", "40 минут" },
+        };
+
+        private Dictionary<string, string> muscleOptions = new Dictionary<string, string>
+        {
+            { "legs", "Ноги" },
+            { "arms", "Руки" },
+            { "chest", "Грудь" },
+            { "full body", "Всё тело" },
+            { "body", "Торс" },
+        };
+
+        private Dictionary<string, string> equipmentOptions = new Dictionary<string, string>
+        {
+            { "dumbbells", "Гантели" },
+            { "barbell", "Штанга" },
+            { "bodyweight", "Собственный вес" },
+            // Добавьте другие варианты по вашему усмотрению
+        };
+
+        private Dictionary<string, string> fitnessLevelOptions = new Dictionary<string, string>
+        {
+            { "beginner", "Начинающий" },
+            { "intermediate", "Средний уровень" },
+            { "advanced", "Продвинутый уровень" },
+            // Добавьте другие варианты по вашему усмотрению
+        };
+
+        private Dictionary<string, string> fitnessGoalsOptions = new Dictionary<string, string>
+        {
+            { "weight_loss", "Снижение веса" },
+            { "muscle_gain", "Набор мышц" },
+            { "strength_building", "Построение силы" },
+            { "endurance", "Выносливость" },
+        };
+
+        // Инициализация выпадающих списков в конструкторе класса
         public NWorkout()
         {
             InitializeComponent();
-        }
-        
 
-        // Выдача результата с Api Workout Planner через обработчик событий
+            // Заполнение выпадающих списков данными
+            timePicker.ItemsSource = timeOptions.Values.ToList();
+            musclePicker.ItemsSource = muscleOptions.Values.ToList();
+            equipmentPicker.ItemsSource = equipmentOptions.Values.ToList();
+            fitnessLevelPicker.ItemsSource = fitnessLevelOptions.Values.ToList();
+            fitnessGoalsPicker.ItemsSource = fitnessGoalsOptions.Values.ToList();
+        }
+
+        // Получение результата с введённых значений
         private async void Button_Result(object sender, EventArgs e)
         {
+            string selectedTime = GetSelectedKey(timeOptions, timePicker.SelectedIndex);
+            string selectedMuscle = GetSelectedKey(muscleOptions, musclePicker.SelectedIndex);
+            string selectedEquipment = GetSelectedKey(equipmentOptions, equipmentPicker.SelectedIndex);
+            string selectedFitnessLevel = GetSelectedKey(fitnessLevelOptions, fitnessLevelPicker.SelectedIndex);
+            string selectedFitnessGoal = GetSelectedKey(fitnessGoalsOptions, fitnessGoalsPicker.SelectedIndex);
 
-
-            // получение данных в формате Json и проверка на получение всех результатов
-            Root root = null;
-            await Task.Run(() =>
+            if (string.IsNullOrEmpty(selectedTime) || string.IsNullOrEmpty(selectedMuscle) || string.IsNullOrEmpty(selectedEquipment) || string.IsNullOrEmpty(selectedFitnessLevel) || string.IsNullOrEmpty(selectedFitnessGoal))
             {
-                string json = PostAndGet(time.Text, location.Text, muscle.Text, equipment.Text);
+                await DisplayAlert("Ошибка!", "Пожалуйста, заполните все поля.", "Ок");
+                return;
+            }
 
-                if (json == null)
-                {
-                    DisplayAlert("АШИБКА О ГОСПАДЕ!!!", "Нет данных", "OK");
-                }
+            Root root = GetWorkoutData(selectedTime, selectedMuscle, selectedEquipment, selectedFitnessLevel, selectedFitnessGoal);
 
-                root = JsonConvert.DeserializeObject<Root>(json);
-            });
-
-            // Асинхронный метод для разделение потока UI и данных
-            Device.BeginInvokeOnMainThread(async () =>
+            if (root == null)
             {
+                await DisplayAlert("Ошибка!", "Не удалось получить данные", "Ок");
+                return;
+            }
 
-                // Десериализация JSON формата в строковый C# формат
-                StringBuilder warmUpBuilder = new StringBuilder();
-                StringBuilder coolDownBuilder = new StringBuilder();
-                StringBuilder exercisesBuilder = new StringBuilder();
+            // Десериализация JSON формата в строковый C# формат
+            StringBuilder warmUpBuilder = new StringBuilder();
+            StringBuilder coolDownBuilder = new StringBuilder();
+            StringBuilder exercisesBuilder = new StringBuilder();
 
-                //Форматирование строк
-                foreach (WarmUp exercise in root.WarmUp)
-                {
-                    warmUpBuilder.AppendFormat("{0}: {1}\n", exercise.Exercise, exercise.Time);
-                }
+            //Форматирование строк
+            foreach (WarmUp exercise in root.WarmUp)
+            {
+                warmUpBuilder.AppendFormat("{0}: {1}\n", exercise.Exercise, exercise.Time);
+            }
 
-                foreach (Exercises exercise in root.Exercises)
-                {
-                    exercisesBuilder.AppendFormat("\nУпражнение: {0}\n Подходов: {1} \n Повторений: {2} \n", exercise.Exercise, exercise.Sets, exercise.Reps);
-                }
+            foreach (Exercises exercise in root.Exercises)
+            {
+                exercisesBuilder.AppendFormat("\nУпражнение: {0}\n Подходов: {1} \n Повторений: {2} \n", exercise.Exercise, exercise.Sets, exercise.Reps);
+            }
 
-                foreach (CoolDown exercise in root.CoolDown)
-                {
-                    coolDownBuilder.AppendFormat("{0}: {1}\n", exercise.Exercise, exercise.Time);
-                }
+            foreach (CoolDown exercise in root.CoolDown)
+            {
+                coolDownBuilder.AppendFormat("{0}: {1}\n", exercise.Exercise, exercise.Time);
+            }
 
-                string langFrom = "en";
-                string langTo = "ru";
-                string warmUp = warmUpBuilder.ToString();
-                string coolDown = coolDownBuilder.ToString();
-                string exercises = exercisesBuilder.ToString();
+            // Перевод с английского на русский
+            string langFrom = "en";
+            string langTo = "ru";
+            string warmUp = warmUpBuilder.ToString();
+            string coolDown = coolDownBuilder.ToString();
+            string exercises = exercisesBuilder.ToString();
 
-                string warmUpTranslation = await TranslateText(warmUp, langFrom, langTo);
-                string coolDownTranslation = await TranslateText(coolDown, langFrom, langTo);
-                string exercisesTranslation = await TranslateText(exercises, langFrom, langTo);
+            string warmUpTranslation = await TranslateText(warmUp, langFrom, langTo);
+            string coolDownTranslation = await TranslateText(coolDown, langFrom, langTo);
+            string exercisesTranslation = await TranslateText(exercises, langFrom, langTo);
 
-                //Подстановка строк
-                string data = string.Format("Разогрев:\n{0}\n\nТренировка:{1}\n\nЗавершение:\n{2}", warmUpTranslation.ToString(), exercisesTranslation.ToString(), coolDownTranslation.ToString());
+            //Подстановка строк
+            string data = string.Format("Разогрев:\n{0}\n\nТренировка:{1}\n\nЗавершение:\n{2}", warmUpTranslation.ToString(), exercisesTranslation.ToString(), coolDownTranslation.ToString());
 
-                //Выдача результатов
-                result.Text = data;
-
-                //Скролл в конец для выдачи полного результата
-                await scroll.ScrollToAsync(0, scroll.Height, true);
-            });
+            //Выдача результатов
+            result.Text = data;
+            //Скролл в конец для выдачи полного результата, как временное решение, далее будет использован значок "загрузка"
+            await scroll.ScrollToAsync(0, scroll.Height, true);
         }
+
+        // Проверка выбора ключа из словарей
+        private static string GetSelectedKey(Dictionary<string, string> options, int selectedIndex)
+        {
+            if (selectedIndex >= 0 && selectedIndex < options.Count)
+            {
+                return options.ElementAt(selectedIndex).Key;
+            }
+
+            return null;
+        }
+
+        //Получение данных с десеарилизацией
+        private Root GetWorkoutData(string time, string muscle, string equipment, string fitnessLevel, string fitnessGoals)
+        {
+            string json = PostAndGet(time, muscle, equipment, fitnessLevel, fitnessGoals);
+
+            if (string.IsNullOrEmpty(json))
+            {
+                return null;
+            }
+
+            return JsonConvert.DeserializeObject<Root>(json);
+        }
+
+        //Перевод текста
         private static async Task<string> TranslateText(string text, string langFrom, string langTo)
         {
             string result = string.Empty;
@@ -152,10 +224,10 @@ namespace AiFitness
             return result;
         }
 
-        //Подключение API Workout Planner с тренировками
-        private string PostAndGet(string time, string muscle, string location, string equipment)
+        // Запрос в API Workout
+        private string PostAndGet(string time, string muscle, string equipment, string fitness_level, string fitness_goals)
         {
-            var client = new RestClient(string.Format("https://workout-planner1.p.rapidapi.com/?time={0}&muscle={1}&location={2}&equipment={3}", time, muscle, location, equipment));
+            var client = new RestClient(string.Format("https://workout-planner1.p.rapidapi.com/customized?time={0}&muscle={1}&equipment={2}&fitness_level={3}&fitness_goals{4}", time, muscle, equipment, fitness_level, fitness_goals));
             var request = new RestRequest(Method.GET);
 
             request.AddHeader("content-type", "application/octet-stream");
@@ -168,7 +240,7 @@ namespace AiFitness
             }
 
             return string.Empty;
-
         }
     }
 }
+

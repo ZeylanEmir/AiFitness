@@ -43,7 +43,6 @@ namespace AiFitness.ViewModels
             if (currentExerciseIndex >= exercises.Count)
             {
                 // Переход на главную страницу (MainPage)
-                // Например, можно использовать Navigation.PushAsync(new MainPage());
                 Application.Current.MainPage.Navigation.PushAsync(new MainPage());
                 return;
             }
