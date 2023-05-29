@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using AiFitness.ViewModels;
+using Microcharts;
+using Microcharts.Forms;
+using SkiaSharp;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

@@ -63,8 +63,8 @@ namespace AiFitness
             { "legs", "Ноги" },
             { "arms", "Руки" },
             { "chest", "Грудь" },
-            { "full body", "Всё тело" },
             { "body", "Торс" },
+            { "full body", "Всё тело" },
         };
 
         private Dictionary<string, string> equipmentOptions = new Dictionary<string, string>
@@ -80,14 +80,14 @@ namespace AiFitness
             { "beginner", "Начинающий" },
             { "intermediate", "Средний уровень" },
             { "advanced", "Продвинутый уровень" },
-            // Добавьте другие варианты по вашему усмотрению
+            
         };
 
         private Dictionary<string, string> fitnessGoalsOptions = new Dictionary<string, string>
         {
             { "weight_loss", "Снижение веса" },
             { "muscle_gain", "Набор мышц" },
-            { "strength_building", "Построение силы" },
+            { "strength_building", "Набор силы" },
             { "endurance", "Выносливость" },
         };
 
@@ -107,11 +107,16 @@ namespace AiFitness
         // Получение результата с введённых значений
         private async void Button_Result(object sender, EventArgs e)
         {
+            // Показать индикатор загрузки
+            await ShowLoadingIndicator(true);
+
             string selectedTime = GetSelectedKey(timeOptions, timePicker.SelectedIndex);
             string selectedMuscle = GetSelectedKey(muscleOptions, musclePicker.SelectedIndex);
             string selectedEquipment = GetSelectedKey(equipmentOptions, equipmentPicker.SelectedIndex);
             string selectedFitnessLevel = GetSelectedKey(fitnessLevelOptions, fitnessLevelPicker.SelectedIndex);
             string selectedFitnessGoal = GetSelectedKey(fitnessGoalsOptions, fitnessGoalsPicker.SelectedIndex);
+
+
 
             if (string.IsNullOrEmpty(selectedTime) || string.IsNullOrEmpty(selectedMuscle) || string.IsNullOrEmpty(selectedEquipment) || string.IsNullOrEmpty(selectedFitnessLevel) || string.IsNullOrEmpty(selectedFitnessGoal))
             {
@@ -163,9 +168,27 @@ namespace AiFitness
             string data = string.Format("Разогрев:\n{0}\n\nТренировка:{1}\n\nЗавершение:\n{2}", warmUpTranslation.ToString(), exercisesTranslation.ToString(), coolDownTranslation.ToString());
 
             //Выдача результатов
-            result.Text = data;
-            //Скролл в конец для выдачи полного результата, как временное решение, далее будет использован значок "загрузка"
-            await scroll.ScrollToAsync(0, scroll.Height, true);
+            /*result.Text = data;*/
+
+            // Создание кнопки для открытия страницы результата
+            Button resultButton = new Button
+            {
+                Text = "Показать результат",
+                Margin = new Thickness(0, 5),
+                HorizontalOptions = LayoutOptions.Center
+            };
+            resultButton.Clicked += async (s, args) =>
+            {
+                await Navigation.PushAsync(new ResultPage(data));
+            };
+
+            // Добавление кнопки на текущую страницу
+            (Content as StackLayout).Children.Add(resultButton);
+
+            //Скролл в конец для выдачи полного результата
+            /*await scroll.ScrollToAsync(0, scroll.Height, true);*/
+            // Скрыть индикатор загрузки
+            await ShowLoadingIndicator(false);
         }
 
         // Проверка выбора ключа из словарей
@@ -241,6 +264,16 @@ namespace AiFitness
 
             return string.Empty;
         }
+        private async Task ShowLoadingIndicator(bool show)
+        {
+            // Показать или скрыть индикатор загрузки
+            loadingIndicator.IsRunning = show;
+            loadingIndicator.IsVisible = show;
+
+            // Добавьте задержку на короткое время для отображения индикатора загрузки
+            await Task.Delay(100);
+        }
+
     }
 }
 

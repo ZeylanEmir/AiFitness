@@ -1,0 +1,14 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AiFitness.ViewModels"
+             x:Class="AiFitness.Views._7DaysWorkout3Page">
+    <ContentPage.BindingContext>
+        <viewModels:_7DaysWorkout3/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="{Binding CurrentExercise.Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="18"/>
+        <Image Source="{Binding CurrentExercise.Gif}" IsAnimationPlaying="True" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="{Binding CurrentExercise.Reps}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+        <Button Text="Next" Command="{Binding NextExerciseCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+    </StackLayout>
+</ContentPage>

@@ -16,6 +16,6 @@
     <local:NWorkout Title="Нейросеть" IconImageSource="neurology_FILL0_wght400_GRAD0_opsz48.png"/>
     <local:Stats Title="Статистика" IconImageSource="monitoring_FILL0_wght400_GRAD0_opsz48.png"/>
     <local:Teacher Title="Тренеры" IconImageSource="azm_FILL0_wght400_GRAD0_opsz48"/>
-    <local:Settings Title="Настройки" IconImageSource="settings_FILL0_wght400_GRAD0_opsz48.png"/>
+    
 
 </TabbedPage>

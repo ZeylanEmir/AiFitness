@@ -7,13 +7,21 @@
         <viewmodels:WorkoutViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+           <StackLayout>
             <Label Text="Тренировки &#127942;" HorizontalOptions="Start" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30"/>
             <Button Text="Тренировка Базовая" Clicked="Button_Clicked" />
             <Button Text="Тренировка Силовая" Clicked="Button_Clicked_1"/>
-
-
-
-        </StackLayout>
+                <Label Text="Комплекc тренировок на 7 дней" HorizontalOptions="Start" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" Margin="15,10,0,0" FontSize="20"/>
+                <Button Text="День 1" Clicked="Seven_Day1Button"/>
+                <Button Text="День 2" Clicked="Seven_Day2Button"/>
+                <Button Text="День 3" Clicked="Seven_Day3Button"/>
+                <Button Text="День 4" Clicked="Seven_Day4Button"/>
+                <Button Text="День 5" Clicked="Seven_Day5Button"/>
+                <Button Text="День 6" Clicked="Seven_Day6Button"/>
+                <Button Text="День 7" Clicked="Seven_Day7Button"/>
+            </StackLayout> 
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

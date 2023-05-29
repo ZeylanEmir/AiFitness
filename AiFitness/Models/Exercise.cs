@@ -9,7 +9,7 @@ namespace AiFitness.Models
     {
         public string Title { get; set; }
         public ImageSource Gif { get; set; }
-        public DateTime Time { get; set; }
+        public TimeSpan Time { get; set; }
         public string Reps { get; set; }
     }
 }
