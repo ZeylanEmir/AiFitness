@@ -4,9 +4,9 @@
              x:Class="AiFitness.MainPage"
             xmlns:local="clr-namespace:AiFitness"
             NavigationPage.HasNavigationBar="False"
-            BarBackgroundColor="#4287f5"
+            BarBackgroundColor="#160837"
             SelectedTabColor="White"
-            UnselectedTabColor="#a2c4fa"
+            UnselectedTabColor="#bdb8c7"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             >
@@ -14,7 +14,7 @@
     
     <local:Workout Title="Тренировки" IconImageSource="fitness_center_FILL0_wght400_GRAD0_opsz48.png"/>
     <local:NWorkout Title="Нейросеть" IconImageSource="neurology_FILL0_wght400_GRAD0_opsz48.png"/>
-    <local:Stats Title="Статистика" IconImageSource="monitoring_FILL0_wght400_GRAD0_opsz48.png"/>
+    <local:Stats Title="ФитАссист" IconImageSource="health_metrics_FILL0_wght700_GRAD200_opsz48.png"/>
     <local:Teacher Title="Тренеры" IconImageSource="azm_FILL0_wght400_GRAD0_opsz48"/>
     
 

@@ -52,6 +52,7 @@ namespace AiFitness
         // Словари для каждой кнопки, установка значения для дальнейшей передачи в API
         private Dictionary<string, string> timeOptions = new Dictionary<string, string>
         {
+            // Максимально доступно 40 минут, так как при большем количестве времени не выдерживает оборудование для API
             { "10", "10 минут" },
             { "20", "20 минут" },
             { "30", "30 минут" },
@@ -69,9 +70,13 @@ namespace AiFitness
 
         private Dictionary<string, string> equipmentOptions = new Dictionary<string, string>
         {
+            { "bodyweight", "Собственный вес" },
             { "dumbbells", "Гантели" },
             { "barbell", "Штанга" },
-            { "bodyweight", "Собственный вес" },
+            { "horizontal_bar", "Турникет" },
+            { "parallel_bars", "Брусья" },
+            { "kettlebell", "Гиря" },
+            { "gym_equipment","Тренажёры в спортзале" },
             // Добавьте другие варианты по вашему усмотрению
         };
 
@@ -167,7 +172,7 @@ namespace AiFitness
             //Подстановка строк
             string data = string.Format("Разогрев:\n{0}\n\nТренировка:{1}\n\nЗавершение:\n{2}", warmUpTranslation.ToString(), exercisesTranslation.ToString(), coolDownTranslation.ToString());
 
-            //Выдача результатов
+            //Выдача результатов (старое)
             /*result.Text = data;*/
 
             // Создание кнопки для открытия страницы результата

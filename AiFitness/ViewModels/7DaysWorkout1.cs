@@ -16,8 +16,8 @@ namespace AiFitness.ViewModels
         {
             exercises = new ObservableCollection<Exercise>
             {
-                new Exercise { Title = "Прыжки Звёздочка", Gif = ImageSource.FromFile("Jumpin_Jack.gif"), Reps = "30 Повторений" },
-                new Exercise { Title = "Выпады на каждую ногу", Gif = ImageSource.FromFile("Vipadi.gif"), Reps = "10 Повторений" },
+                new Exercise { WorkoutStart = "Разминка", Title = "Прыжки Звёздочка", Gif = ImageSource.FromFile("Jumpin_Jack.gif"), Reps = "30 Повторений" },
+                new Exercise { WorkoutStart = "Начало тренировки", Title = "Выпады на каждую ногу", Gif = ImageSource.FromFile("Vipadi.gif"), Reps = "10 Повторений" },
                 new Exercise { Title = "Зашагивание на высоту", Gif = ImageSource.FromFile("Zashagivanie_NaVisatu.gif"), Reps = "10 Повторений на каждую ногу" },
                 new Exercise { Title = "Отжимания кобры", Gif = ImageSource.FromFile("Otzhimaniya_Cobra.gif"), Reps = "15 Повторений" },
                 new Exercise { Title = "Отжимания", Gif = ImageSource.FromFile("Otzhimaniya.gif"), Reps = "15-30 Повторений" },
@@ -26,7 +26,8 @@ namespace AiFitness.ViewModels
                 new Exercise { Title = "Зашагивание на высоту", Gif = ImageSource.FromFile("Zashagivanie_NaVisatu.gif"), Reps = "10 Повторений на каждую ногу" },
                 new Exercise { Title = "Отжимания", Gif = ImageSource.FromFile("Otzhimaniya.gif"), Reps = "15-30 Повторений" },
                 new Exercise { Title = "Скручивание коленей к груди", Gif = ImageSource.FromFile("Scruchivaniya_Koleney_K_Grudi.gif"), Reps = "12 Повторений" },
-                new Exercise { Title = "Т-Планка", Gif = ImageSource.FromFile("T_Plank.gif"), Reps = "60 секунд" }
+                new Exercise { Title = "Т-Планка", Gif = ImageSource.FromFile("T_Plank.gif"),  Reps = "60 секунд" },
+                new Exercise { WorkoutEnd = "Тренировка окончена" , Title = "Не забывайте отдыхать!", Reps = "Для выхода нажмите на NEXT" }
             };
 
             currentExerciseIndex = 0;

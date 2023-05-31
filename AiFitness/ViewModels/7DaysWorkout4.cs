@@ -16,14 +16,14 @@ namespace AiFitness.ViewModels
         {
             exercises = new ObservableCollection<Exercise>
             {
-                new Exercise { Title = "Прыжки звёздочка", Gif = ImageSource.FromFile("Jumpin_Jack.gif"), Reps = "30 Повторений" },
-                new Exercise { Title = "Выпады с выпригиванием", Gif = ImageSource.FromFile("Vipadi_S_Viprigivaniyem.gif"), Reps = "20 Повторений" },
+                new Exercise { WorkoutStart = "Разминка", Title = "Прыжки звёздочка", Gif = ImageSource.FromFile("Jumpin_Jack.gif"), Reps = "30 Повторений" },
+                new Exercise { WorkoutStart = "Начало тренировки", Title = "Выпады с выпригиванием", Gif = ImageSource.FromFile("Vipadi_S_Viprigivaniyem.gif"), Reps = "20 Повторений" },
                 new Exercise { Title = "Приседания", Gif = ImageSource.FromFile("Prisedinya.gif"), Reps = "15 Повторений" },
                 new Exercise { Title = "Подтягивания", Gif = ImageSource.FromFile("Podtyagivanya.gif"), Reps = "8-6 повторений" },
                 new Exercise { Title = "Отжимания", Gif = ImageSource.FromFile("Otzhimaniya.gif"), Reps = "15-30 повторений" },
                 new Exercise { Title = "Алигаторские отжимания", Gif = ImageSource.FromFile("Aligator_Otzhimanya.gif"), Reps = "8 повторений на каждую руку" },
                 new Exercise { Title = "Ходьба на руках", Gif = ImageSource.FromFile("Hodba_Na_Rukah.gif"), Reps = "8 Повторений" },
-                /*new Exercise { Title = "Тренировка завершена", Reps = "Нажмите Next для выхода" },*/
+                new Exercise { WorkoutEnd = "Тренировка окончена" , Title = "Не забывайте отдыхать!", Reps = "Для выхода нажмите на NEXT" }
             };
 
             currentExerciseIndex = 0;

@@ -2,24 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:AiFitness.ViewModels;assembly=AiFitness"
-             x:Class="AiFitness.Workout">
+             x:Class="AiFitness.Workout"
+             BackgroundColor="#6846bc">
     <ContentPage.BindingContext>
         <viewmodels:WorkoutViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
            <StackLayout>
-            <Label Text="Тренировки &#127942;" HorizontalOptions="Start" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30"/>
-            <Button Text="Тренировка Базовая" Clicked="Button_Clicked" />
-            <Button Text="Тренировка Силовая" Clicked="Button_Clicked_1"/>
-                <Label Text="Комплекc тренировок на 7 дней" HorizontalOptions="Start" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" Margin="15,10,0,0" FontSize="20"/>
-                <Button Text="День 1" Clicked="Seven_Day1Button"/>
-                <Button Text="День 2" Clicked="Seven_Day2Button"/>
-                <Button Text="День 3" Clicked="Seven_Day3Button"/>
-                <Button Text="День 4" Clicked="Seven_Day4Button"/>
-                <Button Text="День 5" Clicked="Seven_Day5Button"/>
-                <Button Text="День 6" Clicked="Seven_Day6Button"/>
-                <Button Text="День 7" Clicked="Seven_Day7Button"/>
+                <Label Text="Тренировки &#127942;" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30"/>
+                <Label Text="Базовые тренировки на каждый день" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="15,10,10,0" FontSize="18"/>
+                <Button Text="Тренировка Базовая" Clicked="Button_Clicked" CornerRadius="10" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="20,15,30,5" ImageSource="body_system_FILL0_wght400_GRAD200_opsz48.png" HeightRequest="50"/>
+                <Button Text="Тренировка Силовая" Clicked="Button_Clicked_1" CornerRadius="10" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="20,5,30,5" ImageSource="exercise_FILL0_wght700_GRAD200_opsz48.png" HeightRequest="50"/>
+                <Label Text="Комплекc тренировок на 7 дней" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="15,10,0,0" FontSize="20"/>
+                <Button Text="Понедельник (День 1)" Clicked="Seven_Day1Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
+                <Button Text="Вторник (День 2)" Clicked="Seven_Day2Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
+                <Button Text="Среда (День 3)" Clicked="Seven_Day3Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
+                <Button Text="Четверг (День 4)" Clicked="Seven_Day4Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
+                <Button Text="Пятница (День 5)" Clicked="Seven_Day5Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
+                <Button Text="Суббота (День 6)" Clicked="Seven_Day6Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
+                <Button Text="Воскресенье (День 7)" Clicked="Seven_Day7Button" CornerRadius="15" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="30,10,30,10"/>
             </StackLayout> 
         </ScrollView>
         

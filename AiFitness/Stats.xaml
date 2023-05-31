@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AiFitness.Stats">
+             x:Class="AiFitness.Stats"
+             BackgroundColor="#286bc9">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="В разработке (Stats)"
                    FontSize="35"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

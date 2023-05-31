@@ -1,13 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AiFitness.Teacher">
+             x:Class="AiFitness.Teacher"
+             BackgroundColor="#286bc9">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Список персональных тренеров:" TextColor="Black" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" />
-            <Label Text="Даниил Тусаев" TextColor="Black" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,15,0,0" FontSize="15"/>
-            <Image Source="person_FILL0_wght700_GRAD200_opsz48.png" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Button Text="Связаться" Clicked="Button_Clicked"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Список персональных тренеров:" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30" />
+                <Label Text="Даниил Тусаев" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,15,0,0" FontSize="20" FontAttributes="Bold"/>
+                <Label Text="Возраст: 19" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,0" FontSize="17"/>
+                <Label Text="Рост: 170 см" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,0" FontSize="17"/>
+                <Label Text="Вес: 73 кг" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,0" FontSize="17"/>
+                <Label Text="Достижения:" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,0" FontSize="17" FontAttributes="Bold"/>
+                <Label Text="КМС (кандидат в мастера спорта) по Пауэрлифтингу в классическом троеборье в весовой категории до 67.5кг" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,0" FontSize="18"/>
+                <Label Text="КМС (кандидат в мастера спорта) по Пауэрлифтингу в движении &quot;Жим штанги лежа&quot; в весовой категории до 67.5кг" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,0" FontSize="18"/>
+                <Label Text="КМС (кандидат в мастера спорта) по Пауэрлифтингу в движении &quot;Становая тяга&quot; в весовой категории до 75кг" TextColor="White" HorizontalOptions="Start" FontFamily="Roboto" Margin="25,5,0,15" FontSize="18"/>
+                <Image Source="Daniil_Tusaev.jpeg" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Button Text="Связаться" Clicked="Button_Clicked" CornerRadius="10" BorderWidth="5" FontSize="15" FontAttributes="Bold" Margin="20,15,30,20" HeightRequest="50"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

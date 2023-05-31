@@ -1,14 +1,56 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:AiFitness.ViewModels"
+             xmlns:converters="clr-namespace:AiFitness.Converters"
              x:Class="AiFitness.Views._7DaysWorkout4Page">
+    <ContentPage.Resources>
+        <converters:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter"/>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <viewModels:_7DaysWorkout4/>
     </ContentPage.BindingContext>
     <StackLayout>
-        <Label Text="{Binding CurrentExercise.Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="18"/>
-        <Image Source="{Binding CurrentExercise.Gif}" IsAnimationPlaying="True" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Label Text="{Binding CurrentExercise.Reps}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
-        <Button Text="Next" Command="{Binding NextExerciseCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+        <Label Text="{Binding CurrentExercise.WorkoutStart}" 
+               HorizontalOptions="Center" 
+               VerticalOptions="CenterAndExpand" 
+               FontFamily="Roboto" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               FontSize="18" 
+               IsVisible="{Binding CurrentExercise.WorkoutStart, Converter={StaticResource EmptyStringToVisibilityConverter}}" />
+        <Label Text="{Binding CurrentExercise.WorkoutEnd}" 
+               HorizontalOptions="Center" 
+               VerticalOptions="CenterAndExpand" 
+               FontFamily="Roboto" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               FontSize="18" 
+               IsVisible="{Binding CurrentExercise.WorkoutEnd, Converter={StaticResource EmptyStringToVisibilityConverter}}" />
+        <Label Text="{Binding CurrentExercise.Title}" 
+               HorizontalOptions="Center" 
+               VerticalOptions="CenterAndExpand" 
+               FontFamily="Roboto" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               FontSize="20"/>
+        <Image Source="{Binding CurrentExercise.Gif}" 
+               IsAnimationPlaying="True" 
+               HorizontalOptions="Center" 
+               VerticalOptions="CenterAndExpand" />
+        <Label Text="{Binding CurrentExercise.Reps}" 
+               HorizontalOptions="Center" 
+               VerticalOptions="CenterAndExpand" 
+               FontFamily="Roboto" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               FontSize="20"/>
+        <Button Text="Next" 
+                Command="{Binding NextExerciseCommand}" 
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand" 
+                FontFamily="Roboto" 
+                TextColor="Black" 
+                FontAttributes="Bold" 
+                FontSize="20"/>
     </StackLayout>
 </ContentPage>
