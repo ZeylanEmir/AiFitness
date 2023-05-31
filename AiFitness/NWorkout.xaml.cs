@@ -73,7 +73,7 @@ namespace AiFitness
             { "bodyweight", "Собственный вес" },
             { "dumbbells", "Гантели" },
             { "barbell", "Штанга" },
-            { "horizontal_bar", "Турникет" },
+            { "horizontal_bar", "Турник" },
             { "parallel_bars", "Брусья" },
             { "kettlebell", "Гиря" },
             { "gym_equipment","Тренажёры в спортзале" },
