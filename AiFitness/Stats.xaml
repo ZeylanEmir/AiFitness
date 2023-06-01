@@ -4,11 +4,38 @@
              x:Class="AiFitness.Stats"
              BackgroundColor="#286bc9">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="В разработке (Stats)"
-                   FontSize="35"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" TextColor="White" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Фит-Ассисты &#128692;" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="25,10,0,0" FontSize="30"/>
+                <!--Калькулятор сожжённых калорий-->
+                <Label Text="Калькулятор сожжённых калорий" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="20,10,0,0" FontSize="18"/>
+                <Picker x:Name="activityidPicker" Title="Введите тип вашей активности" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+                <Picker x:Name="activityminPicker" Title="Введите время активности в минутах" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+                <Picker x:Name="weightPicker" Title="Введите ваш вес" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+
+                <Button Text="Рассчитать" Clicked="Button_Clicked"/>
+
+                <Label x:Name="result" FontSize="18" FontAttributes="Bold" FontFamily="Roboto" TextColor="White" Margin="10,10,0,0"/>
+                
+                <!--Калькулятор BMI-->
+                <Label Text="Калькулятор индекса массы тела" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="20,10,0,0" FontSize="18"/>
+
+                <Picker x:Name="weightPickerBMI" Title="Введите ваш вес" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+                <Picker x:Name="heightPicker" Title="Введите ваш рост" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+
+                <Button Text="Рассчитать BMI" Clicked="CalculateBMI_Clicked"/>
+
+                <Label x:Name="bmiResult" FontSize="18" FontAttributes="Bold" FontFamily="Roboto" TextColor="White" Margin="10,10,0,0"/>
+                
+                <!--Калькулятор идеального веса-->
+                <Label Text="Калькулятор идеального веса" HorizontalOptions="Start" FontFamily="Roboto" TextColor="White" FontAttributes="Bold" Margin="20,10,0,0" FontSize="18"/>
+                <Picker x:Name="weightPickerIdeal" Title="Введите ваш вес" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+                <Picker x:Name="heightPickerIdeal" Title="Введите ваш рост" TitleColor="White" FontFamily="Roboto" TextColor="White" FontAttributes="Bold"/>
+                <Button Text="Рассчитать идеальный вес" Clicked="CalculateIdealWeight_Clicked"/>
+                <Label x:Name="idealWeightResult" FontSize="18" FontAttributes="Bold" FontFamily="Roboto" TextColor="White" Margin="10,10,10,0"/>
+                
+                
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
