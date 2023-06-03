@@ -19,7 +19,7 @@ namespace AiFitness
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            string url = "https://aktsept-stroy.kz/trainer.html"; // Url тренеров
+            string url = "https://aifitness.kz/trainer.html"; // Url тренеров
             Device.OpenUri(new Uri(url));
         }
     }
